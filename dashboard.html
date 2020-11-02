@@ -4,16 +4,77 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
 <meta name="theme-color" content="#000000"/>
-  <style>
+<style>
     body, html {
-      background-color: white;
-      margin: 0px;
-      padding: 0px;
-      border:0px;
-      overflow:auto;
-      font-family: Arial, verdana;
+        background-color: white;
+        margin: 0px;
+        padding: 0px;
+        border:0px;
+        overflow:auto;
+        font-family: inter, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+        text-align: center;
+        font-size:0px;
     }
-  </style>
+    body {
+        padding:5px;
+    }
+    #loginform {
+        padding: 0px;
+    }
+    #clientid, #submit {
+        font-size: 14px;
+        /*text-transform: uppercase;*/
+        background-color: white;
+        border: solid 1.5px #24AFFF;
+        padding: 5px 10px;
+        box-shadow: 0px 1px 3px RGBA(0,0,0,.2);
+        outline: none;
+    }
+    #clientid {
+        border-radius: 40px 0px 0px 40px;
+        color:black;
+    }
+    #submit {
+        border-radius: 0px 40px 40px 0px;
+        border-left: none;
+        background-color: #59c2fe;
+        color: white;
+        padding-right: 12px;
+        text-shadow: 0px 1px 1px RGBA(0,0,0,.2);
+    }
+    #submit:hover, #submit:focus {
+        background-color:#24AFFF;
+    }
+    #submit:active {
+        background-color:#1895dd;
+    }
+    #error {
+        display: none;
+        font-size: 12px;
+        color: red;
+    }
+</style>
+<script type="text/javascript">
+function showError() {
+    errorBox = document.getElementById("error");
+    errorBox.style.display = "block";
+    setTimeout(function() {errorBox.style.display = "none";}, 3000);
+    return false;
+}
+function goToURL() {
+        var clientID = document.getElementById('clientid').value;
+
+        if (clientID == "User ID" || clientID.includes(' ')){
+            showError();
+        }
+        else {
+            window.open('http://dashboard.nysics.com/' + clientID);
+        }
+}
+window.addEventListener('load',function() {
+    document.getElementById("loginform").addEventListener('submit',goToURL)
+})
+</script>
 <!--<link rel="manifest" href="/manifest.json"/>
 <link rel="shortcut icon" href="/favicon.ico"/>-->
 <title>Dashboard Login</title>
@@ -21,10 +82,10 @@
 <link href="/static/css/main.be450987.chunk.css" rel="stylesheet">-->
 </head>
 <body>
-<h1> Test </h1>
-  <form>
-    <input type="text" name="userid" id="userid">User ID</input>
-    <input type="submit">Go</input>
+  <form id="loginform">
+    <input type="text" name="clientid" id="clientid" value="User ID" onfocus="this.value=''"></input>
+    <input type="submit" id="submit" value="Log in"></input>
   </form>
+  <span id="error">Please enter a valid User or Client ID</span>
 </body>
 </html>
