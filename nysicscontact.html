@@ -131,16 +131,30 @@
 
             window.addEventListener('load', function(){
 
+                //Styles
+
                 //Background Color
                 if(urlParams.has('bgColor')) {
-                    console.log('bgcolor: ' + urlParams.get('bgColor'));
+                    //console.log('bgcolor: ' + urlParams.get('bgColor'));
                     document.body.style.setProperty('--backgroundColor', "#"+urlParams.get('bgColor'));
                 }
 
                 //Text Color
                 if(urlParams.has('textColor')) {
-                    console.log('textColor: ' + urlParams.get('textColor'));
+                    //console.log('textColor: ' + urlParams.get('textColor'));
                     document.body.style.setProperty('--textColor', "#"+urlParams.get('textColor'));
+                }
+
+                //Forms
+
+                //messageSubject
+                if(urlParams.has('messageSubject')) {
+                    document.getElementById('messagesubject').value = urlParams.get('messageSubject');
+                }
+
+                //messageBody
+                if(urlParams.has('messageBody')) {
+                    document.getElementById('messagebody').value = urlParams.get('messageBody');
                 }
 
                 document.body.classList.add("loaded");
@@ -167,10 +181,10 @@
         
         
             <label><span class="text">Subject</span></label>
-            <input name="entry.859684815" type="text" required autocomplete="off" placeholder="I'm Interested in Wedding Montages" />
+            <input name="entry.859684815" type="text" required autocomplete="off" placeholder="I'm Interested in Wedding Montages" id="messagesubject" />
         
             <label><span class="text">Message</span></label>
-            <textarea name="entry.962678984" rows="5" required autocomplete="off" placeholder="Tell us more!" ></textarea>
+            <textarea name="entry.962678984" rows="5" required autocomplete="off" placeholder="Tell us more!" id="messagebody" ></textarea>
             <br/>
         
         
