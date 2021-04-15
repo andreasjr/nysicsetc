@@ -9,6 +9,9 @@
 
         <link rel="stylesheet" href="https://use.typekit.net/jtm2kug.css">
         <style>
+            * {
+                box-sizing: border-box;
+            }
             html {
                 background: transparent !important;
                 margin:0px;
@@ -19,8 +22,8 @@
                 --textColor: white;
                 background-color: var(--backgroundColor);
                 color: var(--textColor);
-                font-family: upgrade, sans-serif !important;
-                font-weight:100;
+                font-family: upgrade, sans-serif;
+                font-weight:300;
                 overflow: hidden !important;
                 overflow-y: auto !important;
                 cursor:default;
@@ -31,40 +34,54 @@
             #root {
                 opacity: 0;
                 transition: opacity 1s ease-in-out;
+                padding:20px;
             }
             body.loaded #root {
                 opacity: 1;
             }
 
             label {
-                font-size: 20px;
+                font-size: 25px;
                 text-transform: uppercase;
-                letter-spacing: 1.1;
-                font-weight: 100;
-                margin-top: 10px;
+                letter-spacing: 5px;
+                font-weight: 500;
+                margin-top: 25px;
                 display: block;
+                font-family: upgrade-lights, sans-serif;
             }
             label .subtitle {
                 font-size: .7em;
                 font-style: italic;
                 opacity: .5;
+                display: block;
             }
 
-            input {
+            input, textarea {
                 background-color: var(--backgroundColor);
                 border: solid 2px var(--textColor);
                 color: var(--textColor);
-                font-size: 15px;
+                font-size: 16px;
                 padding: 5px 15px;
-                border-radius: 20px;
-                transition: all .2s ease-in-out;
+                border-radius: 40px;
                 display: block;
                 width: auto;
-                margin: 0px auto;
+                font-family: upgrade, sans-serif;
+                font-weight: 300;
+                margin: 5px auto 0px auto;
+                box-shadow: 0px 3px 10px rgba(0,0,0,.2);
+                transition: border .2s ease-in-out;
+                transition: box-shadow .2s ease-in-out;
+            }
+            textarea {
+                font-family: upgrade, sans-serif;
+                font-weight: 300;
+                letter-spacing: 1.1px;
+                border-radius: 20px;
             }
 
-            input[type="text"],input[type="email"], input[type="tel"] {
+            input[type="text"],input[type="email"], input[type="tel"], textarea {
                 width: 100%;
+                max-width: 100%;
             }
 
             input[type="submit"]{
@@ -72,9 +89,10 @@
                 font-weight:600;
                 letter-spacing: 1.4px;
                 padding:10px 30px;
+                transition: background .2s ease-in-out;
             }
                 input[type="submit"]:hover {
-                    background-color: #00AFFB;
+                    background-color: rgb(0, 175, 251);
                 }
             input:focus,
             select:focus,
@@ -82,6 +100,7 @@
             button:focus {
                 outline: none;
                 border-color:#00AFFB;
+                box-shadow: 0px 3px 15px rgba(0, 175, 251,.5);
             }
         </style>
         <script>
@@ -120,17 +139,17 @@
         
             <label>
                 <span class="text">Phone Number</span>
-                <br/><span class="subtitle">(123-456-7890)</span>
+                <span class="subtitle">(123-456-7890)</span>
             </label>
             <input name="entry.695473681" type="tel" required  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
             <br/>
         
         
             <label><span class="text">Subject</span></label>
-            <input name="entry.859684815" type="text" required />
+            <input name="entry.859684815" type="text" required autocomplete="off" />
         
             <label><span class="text">Message</span></label>
-            <input name="entry.962678984" type="text" required />
+            <textarea name="entry.962678984" rows="5" required autocomplete="off" ></textarea>
             <br/>
         
         
