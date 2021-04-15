@@ -31,6 +31,15 @@
                 padding: 0px;
             }
 
+            a:link, a:visited {
+                color: var(--textColor);
+                opacity: .8;
+                transition: color .2s ease-in-out;
+            }
+            a:hover, a:focus {
+                opacity: 1;
+            }
+
             #root {
                 opacity: 0;
                 transition: opacity 1s ease-in-out;
@@ -41,13 +50,16 @@
             }
 
             label {
-                font-size: 25px;
+                font-size: 16px;
                 text-transform: uppercase;
-                letter-spacing: 5px;
+                letter-spacing: 3px;
                 font-weight: 500;
                 margin-top: 25px;
                 display: block;
                 font-family: upgrade-lights, sans-serif;
+            }
+            label:first-child {
+                margin-top: 0px;
             }
             label .subtitle {
                 font-size: .7em;
@@ -73,9 +85,6 @@
                 transition: box-shadow .2s ease-in-out;
             }
             textarea {
-                font-family: upgrade, sans-serif;
-                font-weight: 300;
-                letter-spacing: 1.1px;
                 border-radius: 20px;
             }
 
@@ -90,10 +99,19 @@
                 letter-spacing: 1.4px;
                 padding:10px 30px;
                 transition: background .2s ease-in-out;
+                -webkit-appearance: none;     
+                -moz-appearance: none;
+                appearance: none;
             }
                 input[type="submit"]:hover {
                     background-color: rgb(0, 175, 251);
                 }
+            
+            input::placeholder {
+                color: var(--textColor);
+                opacity: .2;
+            }
+
             input:focus,
             select:focus,
             textarea:focus,
@@ -130,26 +148,25 @@
         <form class="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScovn7dzZA77g-o7-0C1GuYHOczZoA6ptM0-tgy6lHuYywV0A/formResponse">
 
             <label><span class="text">First and Last Name</span></label>
-            <input name="entry.1695425251" type="text" required />
+            <input name="entry.1695425251" type="text" required placeholder="John Smith" />
             
         
             <label>
                 <span class="text">Email Address</span></label>
-            <input name="entry.687816575" type="email" required />
+            <input name="entry.687816575" type="email" required placeholder="john@smith.com" />
         
             <label>
                 <span class="text">Phone Number</span>
-                <span class="subtitle">(123-456-7890)</span>
             </label>
-            <input name="entry.695473681" type="tel" required  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+            <input name="entry.695473681" type="tel" required placeholder="123-456-7890"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
             <br/>
         
         
             <label><span class="text">Subject</span></label>
-            <input name="entry.859684815" type="text" required autocomplete="off" />
+            <input name="entry.859684815" type="text" required autocomplete="off" placeholder="I'm Interested in Wedding Montages" />
         
             <label><span class="text">Message</span></label>
-            <textarea name="entry.962678984" rows="5" required autocomplete="off" ></textarea>
+            <textarea name="entry.962678984" rows="5" required autocomplete="off" placeholder="Tell us more!" ></textarea>
             <br/>
         
         
