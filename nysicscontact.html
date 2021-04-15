@@ -93,13 +93,13 @@
                 //Background Color
                 if(urlParams.has('bgColor')) {
                     console.log('bgcolor: ' + urlParams.get('bgColor'));
-                    document.body.style.setProperty('--backgroundColor', urlParams.get('bgColor'));
+                    document.body.style.setProperty('--backgroundColor', "#"+urlParams.get('bgColor'));
                 }
 
                 //Text Color
                 if(urlParams.has('textColor')) {
                     console.log('textColor: ' + urlParams.get('textColor'));
-                    document.body.style.setProperty('--textColor', urlParams.get('textColor'));
+                    document.body.style.setProperty('--textColor', "#"+urlParams.get('textColor'));
                 }
 
                 document.body.classList.add("loaded");
@@ -140,6 +140,3 @@
     </div>      
     </body>
 </html>
-
-
-
